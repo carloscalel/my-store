@@ -1,3 +1,21 @@
+<h1>*ngIf</h1>
+<input type="text" required [(ngModel)] = "person.name" />
+<p *ngIf="person.name == 'Carlos'">Soy Carlos</p>
+<p *ngIf="person.name == 'Fer' && person.age === 18; else elseBlock" >Soy Fer</p>
+<ng-template #elseBlock>
+  <p>Bloque de else</p>
+</ng-template>
+
+
+<hr>
+<h1>NgModel</h1>
+<p>Nombre {{ person.name }} </p>
+<input type="text" required #nameInput = "ngModel" [(ngModel)] = "person.name" />
+<p>Valid: {{ nameInput.valid }}  </p>
+<input type="number" max="18" min="10" required #ageInput = "ngModel" [(ngModel)] = "person.age" />
+<p>Valid: {{ ageInput.valid }}  </p>
+
+<hr>
 <h1>Eventos</h1>
 <button [disabled]="btnDisabled">Enviar</button>
 <button (click)="toggleButton()">Toggle Button</button>
